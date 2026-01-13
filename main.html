@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./main.css" type="text/css"> -->
+     <style>
+        h1 {
+            text-align: center;
+        }
+        .txt_welcome {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .card_product{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .card {
+            text-align: center;
+        }
+        .card_title {
+            font-size: 20px;
+        }
+        .card_button {
+            font-size: 16px;
+            width: 150px;
+            height: 30px;
+        }
+        .card_img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Tennis market </h1>
+    <div class="txt_welcome">
+        Welcome to Tennis market! <br>
+        Enjoy your shopping.
+        <br>
+        <br>
+        <a href="./orderlist.html"> order list </a>
+    </div>
+    <div class="card_product">
+        <div class="card">
+            <img class="card_img" src="./img/redRacket.png">
+            <p class="card_title"> Red Rackets </p>
+            <input class="card_button" type="button" value="order" onclick="location.href='/order?productId=1'">
+        </div>
+        <div class="card">
+            <img class="card_img" src="./img/blueRacket.png">
+            <p class="card_title"> Blue Rackets </p>
+            <input class="card_button" type="button" value="order" onclick="alert(2)">
+        </div>
+        <div class="card">
+            <img class="card_img" src="./img/blackRacket.png">
+            <p class="card_title"> Black Rackets </p>
+            <input class="card_button" type="button" value="order" onclick="alert(3)">
+        </div>
+    </div>
+</body>
+</html>
