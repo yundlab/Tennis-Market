@@ -1,5 +1,6 @@
 const fs = require('fs');
 const main_view = fs.readFileSync('./main.html', 'utf-8');
+const orderlist_view = fs.readFileSync('./orderlist.html', 'utf-8');
 
 const mariadb = require('./database/connect/mariadb');
 
@@ -50,10 +51,31 @@ function order(response, productId) {
         response.end();
 }
 
+function orderlist (response) {
+    console.log('orderlist');
+
+    response.writeHead(200, {'Content-Type' : 'text/html'});
+
+    mariadb.query("SELECT * FROM orderlist", function(err, rows) {
+        response.write(orderlist_view);
+
+        rows.forEach(element => {
+            response.write("<tr>"
+                        + "<td>" + element.product_id + "</td>"
+                        + "<td>" + element.orderdate + "</td>"
+                        + "</tr>");
+        });
+
+        response.write("</table>");
+        response.end();
+    });
+}
+
+
 let handle = {}; // key:value
 handle['/'] = main;
 handle['/order'] = order;
-
+handle['/orderlist'] = orderlist;
 
 /* img 경로 */
 handle['/img/redRacket.png'] = redRacket;
